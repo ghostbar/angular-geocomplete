@@ -1,0 +1,26 @@
+{
+  "name": "angular-geocomplete",
+  "version": "0.1.0",
+  "authors": [
+    "Jose Luis Rivas <me@ghostbar.co>"
+  ],
+  "description": "Angular Factory to get GeoData on Cities from Google's API",
+  "main": "angular-geocomplete.js",
+  "keywords": [
+    "angular",
+    "geo",
+    "geodata",
+    "google",
+    "google api",
+    "city",
+    "cities"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
