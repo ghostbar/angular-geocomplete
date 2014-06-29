@@ -1,11 +1,11 @@
 //
-// angular-geocomplete
+// geocomplete
 // ===================
 //
 (function () {
   'use strict';
 
-  angular.module('angular-geocomplete', [])
+  angular.module('geocomplete', [])
 
   .factory('geoComplete', [
     '$http',

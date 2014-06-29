@@ -24,7 +24,7 @@ Add to your HTML files:
 
 Now, inject to your application:
 
-    angular.module('myApp', ['angular-geocomplete']);
+    angular.module('myApp', ['geocomplete']);
 
 Ready to use in your controllers!:
 
@@ -33,9 +33,9 @@ Ready to use in your controllers!:
 ```js
 var DemoCtrl = [
   '$scope',
-  'geocomplete',
-  function ($scope, geocomplete) {
-    $scope.results = geocomplete.cities("San Francisco");
+  'geoComplete',
+  function ($scope, geoComplete) {
+    $scope.results = geoComplete.cities("San Francisco");
   }
 ]
 ```
