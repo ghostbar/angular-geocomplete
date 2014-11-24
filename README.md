@@ -24,7 +24,7 @@ Add to your HTML files:
 
 Now, inject to your application:
 
-    angular.module('myApp', ['geocomplete']);
+    angular.module('myApp', ['geoComplete']);
 
 Ready to use in your controllers!:
 
