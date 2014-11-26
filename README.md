@@ -16,7 +16,7 @@ Usage
 
 Install with bower:
 
-    bower install angular-geocomplate --save
+    bower install angular-geocomplete --save
 
 Add to your HTML files:
 
