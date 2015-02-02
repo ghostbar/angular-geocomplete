@@ -24,25 +24,35 @@ Add to your HTML files:
 
 Now, inject to your application:
 
-    angular.module('myApp', ['angular-geocomplete']);
+    angular.module('myApp', ['geocomplete']);
 
 Ready to use in your controllers!:
 
 `controller.js:`
 
 ```js
-var DemoCtrl = [
-  '$scope',
-  'geoComplete',
-  function ($scope, geoComplete) {
-    $scope.results = geoComplete.cities("San Francisco");
-  }
-]
+// using callbacks
+var DemoCtrl = [ '$scope', 'geoComplete', function ($scope, geoComplete) {
+  geoComplete.cities("San Francisco", function (results) {
+    $scope.results = results;
+  });
+}];
+
+// using promises
+var DemoCtrl = [ '$scope', 'geoComplete', function ($scope, geoComplete) {
+  geoComplete.cities("San Francisco").then(function (results) {
+    $scope.results = results;
+  });
+}];
 ```
 
 Author
 ------
 © 2014, Jose Luis Rivas `<me@ghostbar.co>`. 
+
+Contributors
+------------
+Sha Alibhai (@shalotelli)
 
 License
 -------
