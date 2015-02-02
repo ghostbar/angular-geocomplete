@@ -46,6 +46,16 @@ var DemoCtrl = [ '$scope', 'geoComplete', function ($scope, geoComplete) {
 }];
 ```
 
+Demo
+----
+1. Plunker: http://plnkr.co/edit/yatsd3Cqg0te6TPMpjLV?p=preview
+2. Local: Run ```gulp``` to run tests, generate coverage and load demo or ```gulp serve``` to just load the demo. (a browser window will automatically open to http://localhost:8000)
+
+Tests
+-----
+- Run ```gulp test```
+- Coverage is generated in the ```coverage/``` folder
+
 Author
 ------
 © 2014, Jose Luis Rivas `<me@ghostbar.co>`. 
