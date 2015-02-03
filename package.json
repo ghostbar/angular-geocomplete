@@ -1,0 +1,25 @@
+{
+  "name": "angular-geocomplete",
+  "version": "0.1.0",
+  "description": "Angular Factory to get GeoData on Cities from Google's API",
+  "main": "angular-geocomplete.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ghostbar/angular-geocomplete"
+  },
+  "author": "Jose Luis Rivas <me@ghostbar.co>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ghostbar/angular-geocomplete/issues"
+  },
+  "homepage": "https://github.com/ghostbar/angular-geocomplete",
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "gulp-server-livereload": "^1.0.2",
+    "jasmine-core": "^2.1.3",
+    "karma": "^0.12.31",
+    "karma-coverage": "^0.2.7",
+    "karma-jasmine": "^0.3.5",
+    "karma-phantomjs-launcher": "^0.1.4"
+  }
+}

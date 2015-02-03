@@ -6,11 +6,9 @@
   'use strict';
 
   angular.module('geocomplete', [])
-
-  .factory('geoComplete', [
-    '$http',
-    function ($http) {
+    .factory('geoComplete', [ '$http', function ($http) {
       var apiUrl = 'https://maps.googleapis.com/maps/api/geocode/json';
+
       /* Public API */
       return {
         //
@@ -42,17 +40,20 @@
               sensor: false
             }
           }).then(function (res) {
-            var addresses = []
+            var addresses = [];
+
             angular.forEach(res.data.results, function (item) {
               addresses.push(item.formatted_address)
             });
 
-            if (callback != null)
-              return callback(null, addresses);
+            if (callback) {
+              return callback.call(this, addresses);
+            }
 
             return addresses;
           });
         },
+
         //
         // <a name='citiesJSON'></a>
         // Public: geocomplete Cities returning a JSON
@@ -121,13 +122,13 @@
               addresses.push(item);
             });
 
-            if (callback != null)
-              return callback(null, addresses);
+            if (callback) {
+              return callback.call(this, addresses);
+            }
 
             return addresses;
           });
         }
-      }
-    }
-  ]);
+      };
+    }]);
 })();

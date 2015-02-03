@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="geocomplete-demo">
+  <head>
+    <title>Angular Geocomplete</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+    <script src="../angular-geocomplete.js"></script>
+    <script src="./demo/app.js"></script>
+  </head>
+  <body>
+    <h1>Angular Geocomplete</h1>
+    <div ng-controller="MainController">
+      <input type="text" ng-model="model.city">
+      <button type="button" ng-click="search()">Search</button>
+      <hr>
+      <div ng-show="model.citiesArray">
+        <h2>Array Formatted</h2>
+        <pre>{{model.citiesArray|json}}</pre>
+      </div>
+
+      <div ng-show="model.citiesJSON">
+        <h2>JSON Formatted</h2>
+        <pre>{{model.citiesJSON|json}}</pre>
+      </div>
+    </div>
+  </body>
+</html>

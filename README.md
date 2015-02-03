@@ -24,25 +24,45 @@ Add to your HTML files:
 
 Now, inject to your application:
 
-    angular.module('myApp', ['angular-geocomplete']);
+    angular.module('myApp', ['geocomplete']);
 
 Ready to use in your controllers!:
 
 `controller.js:`
 
 ```js
-var DemoCtrl = [
-  '$scope',
-  'geoComplete',
-  function ($scope, geoComplete) {
-    $scope.results = geoComplete.cities("San Francisco");
-  }
-]
+// using callbacks
+var DemoCtrl = [ '$scope', 'geoComplete', function ($scope, geoComplete) {
+  geoComplete.cities("San Francisco", function (results) {
+    $scope.results = results;
+  });
+}];
+
+// using promises
+var DemoCtrl = [ '$scope', 'geoComplete', function ($scope, geoComplete) {
+  geoComplete.cities("San Francisco").then(function (results) {
+    $scope.results = results;
+  });
+}];
 ```
+
+Demo
+----
+1. Plunker: http://plnkr.co/edit/yatsd3Cqg0te6TPMpjLV?p=preview
+2. Local: Run ```gulp``` to run tests, generate coverage and load demo or ```gulp serve``` to just load the demo. (a browser window will automatically open to http://localhost:8000)
+
+Tests
+-----
+- Run ```gulp test```
+- Coverage is generated in the ```coverage/``` folder
 
 Author
 ------
 © 2014, Jose Luis Rivas `<me@ghostbar.co>`. 
+
+Contributors
+------------
+Sha Alibhai (@shalotelli)
 
 License
 -------
