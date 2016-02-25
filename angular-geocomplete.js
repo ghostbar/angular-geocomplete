@@ -19,6 +19,7 @@
         // #### Arguments
         //
         // + `cityName`: `String`
+        // + `options`:  (Optional )`Object` of options, see more: https://developers.google.com/maps/documentation/geocoding/intro#ComponentFiltering
         // + `callback`: (Optional) `Callback` function
         //
         // #### Returns
@@ -33,12 +34,12 @@
         // => ["San Diego, CA, United States", "San Andreas, CA, United States", ...]
         // ```
         //
-        cities: function (cityName, callback) {
+        cities: function (cityName, options, callback) {
           return $http.get(apiUrl, {
-            params: {
+            params: angular.extend({}, options, {
               address: cityName,
               sensor: false
-            }
+            })
           }).then(function (res) {
             var addresses = [];
 
@@ -64,7 +65,8 @@
         //
         // #### Arguments
         //
-        // + `cityName`: An `String` with the city/place name
+        // + `cityName`: A `String` with the city/place name
+        // + `options`:  (Optional )`Object` of options, see more: https://developers.google.com/maps/documentation/geocoding/intro#ComponentFiltering
         // + `callback`: (Optional) `Callback` function.
         //
         // #### Returns
@@ -109,12 +111,12 @@
 	      //  }, ...]
         // ```
         //
-        citiesJSON: function (cityName, callback) {
+        citiesJSON: function (cityName, options, callback) {
           return $http.get(apiUrl, {
-            params: {
+            params: angular.extend({}, options, {
               address: cityName,
               sensor: false
-            }
+            })
           }).then(function (res) {
             var addresses = [];
 
