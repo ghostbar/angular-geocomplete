@@ -88,11 +88,23 @@ describe('factory: geoComplete', function () {
     geoComplete = _geoComplete_;
 
     httpBackend.whenGET(apiUrl + '?address=Lake+Mary&sensor=false').respond(mockData);
+    httpBackend.whenGET(apiUrl + '?address=Lake+Mary&components=country:BR&sensor=false').respond(mockData);
   }));
 
   afterEach(function () {
     httpBackend.verifyNoOutstandingExpectation();
     httpBackend.verifyNoOutstandingRequest();
+  });
+
+  it('should return an array of matching city names using a promise and options', function () {
+    var responseData;
+
+    geoComplete.cities('Lake Mary', {components: 'country:BR'}).then(function (cities) {
+      responseData = cities;
+    });
+
+    httpBackend.expectGET(apiUrl + '?address=Lake+Mary&components=country:BR&sensor=false');
+    httpBackend.flush();
   });
 
   it('should search for a city', function () {
@@ -110,7 +122,7 @@ describe('factory: geoComplete', function () {
   it('should return an array of matching city names via callback', function () {
     var responseData;
 
-    geoComplete.cities('Lake Mary', function (cities) {
+    geoComplete.cities('Lake Mary', {}, function (cities) {
       responseData = cities;
     });
 
@@ -134,7 +146,7 @@ describe('factory: geoComplete', function () {
   it('should return matching city info as a JSON object via callback', function () {
     var responseData;
 
-    geoComplete.citiesJSON('Lake Mary', function (cities) {
+    geoComplete.citiesJSON('Lake Mary', {}, function (cities) {
       responseData = cities;
     });
 
@@ -153,5 +165,16 @@ describe('factory: geoComplete', function () {
     httpBackend.flush();
 
     expect(responseData.length).not.toBe(0);
+  });
+
+  it('should return matching city info as a JSON object using a promise and options', function () {
+    var responseData;
+
+    geoComplete.citiesJSON('Lake Mary', {components: 'country:BR'}).then(function (cities) {
+      responseData = cities;
+    });
+
+    httpBackend.expectGET(apiUrl + '?address=Lake+Mary&components=country:BR&sensor=false');
+    httpBackend.flush();
   });
 });
